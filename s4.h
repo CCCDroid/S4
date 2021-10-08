@@ -5,6 +5,7 @@ typedef unsigned char byte;
 #define MAX_CODE (64*1024)
 #define MEM_SZ   (MEM_SZB/4)
 typedef unsigned short addr;
+typedef long CELL;
 
 extern void vmInit();
 extern addr run(addr pc);
@@ -15,6 +16,7 @@ extern addr functionAddress(int fn);
 extern void printString(const char*);
 extern void printStringF(const char* fmt, ...);
 
+#define _LINUX
 #ifdef _WIN32
 #define __PC__
 #define INPUT 0
@@ -35,7 +37,7 @@ extern byte isBye;
 #else
 #define _DEV_BOARD_
 #define __SERIAL__
-#include <Arduino.h>
+#include "Arduino.h"
 #define PICO 1
 #define XIAO 0
 #if PICO

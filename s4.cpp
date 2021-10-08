@@ -247,11 +247,11 @@ addr doFile(addr pc) {
         char* md = (char*)bMem + pop();
         char* fn = (char*)bMem + T;
         T = 0;
-        fopen_s((FILE**)&T, fn, md);
+        T = (CELL)fopen(fn, md);
     }
             break;
     case 'R': if (T) {
-        long n = fread_s(buf, 2, 1, 1, (FILE*)T);
+        long n = fread(buf, 1, 1, (FILE*)T);
         T = ((n) ? buf[0] : 0);
         push(n);
     }
@@ -432,8 +432,8 @@ addr run(addr pc) {
         case 'l': t1 = pop();  // LOAD
 #ifdef __PC__
             if (input_fp) { fclose(input_fp); }
-            sprintf_s(buf, sizeof(buf), "block.%03ld", t1);
-            fopen_s(&input_fp, buf, "rt");
+            sprintf(buf, "block.%03ld", t1);
+            input_fp = fopen(buf, "rt");
 #else
             printString("-l:pc only-");
 #endif
