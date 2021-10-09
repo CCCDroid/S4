@@ -25,10 +25,11 @@ There are examples for S4 here: https://github.com/CCurl/S4/blob/main/examples.t
 
 # Building S4
 
-- On the PC, I use Microsoft's Visual Studio (Community edition). 
+- On Linux, I use clang.
+- On Windows, I use Microsoft's Visual Studio (Community edition). 
 - For Development boards, I use the Arduino IDE. 
-- I do not have an Apple or Linux system, so I haven't tried to compile the program for those environments
-- However, being such a simple C program, it should not be difficult to port S4 to those environments.
+- I do not have an Apple, so I haven't tried to build the program for that environment.
+- However, being such a simple C program, it should not be difficult to port S4 to any environment.
 
 S4 was inspired by STABLE. See https://w3group.de/stable.html for details on STABLE.
 A big thanks to Sandor Schneider for the inspiration for this project.
